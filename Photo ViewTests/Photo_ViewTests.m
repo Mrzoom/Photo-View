@@ -2,7 +2,7 @@
 //  Photo_ViewTests.m
 //  Photo ViewTests
 //
-//  Created by zoom on 14-4-30.
+//  Created by zoom on 14-5-3.
 //  Copyright (c) 2014年 Jiance Tong. All rights reserved.
 //
 

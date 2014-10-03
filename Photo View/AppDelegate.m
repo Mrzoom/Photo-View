@@ -2,18 +2,32 @@
 //  AppDelegate.m
 //  Photo View
 //
-//  Created by zoom on 14-4-30.
+//  Created by zoom on 14-5-3.
 //  Copyright (c) 2014年 Jiance Tong. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import <SimpleAuth/SimpleAuth.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    SimpleAuth.configuration[@"instagram"] = @{
+        @"client_id" : @"f8bb5fed650848518fdfbdeb78a54763",
+        SimpleAuthRedirectURIKey : @"zoom://photo/application"
+                                               };
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    PhotoViewController * photoViewController=[[PhotoViewController alloc] init];
+    UINavigationController * navigationController =[[UINavigationController alloc] initWithRootViewController:photoViewController];
+    self.window.rootViewController = navigationController;
+    UINavigationBar *navigationBar =navigationController.navigationBar;
+    UIColor * mycolor= [UIColor colorWithRed:100.0/255.0 green:187.0/255.0 blue:82.0/255.0 alpha:1.0];
+    [[UINavigationBar appearance] setBarTintColor:mycolor];
+    navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //navigationBar.barTintColor = [UIColor colorWithRed:242.0/255.0 green:187.0/255.0 blue:82.0/255.0 alpha:1.0];
     // Override point for customization after application launch.
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
